@@ -8,7 +8,9 @@ function SimilarMovies({ movies, getMovieDetails}) {
 
   return (
     <div className='container-fluid'>
-      <h2 className='text-center'>Similar movies</h2>
+      <div className="">
+      <h2 className='text-center title text-white fs-1 py-2 border border-bottom'>Similar movies</h2>
+      </div>
       <div className='row'>
         {movies.map((movie) => (
           <div key={movie.imdbID} className='col-3'>

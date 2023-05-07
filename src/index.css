@@ -1,6 +1,25 @@
-.custom-dark{
-  color: #212121 !important;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+
+  
 }
-input:focus{
-  outline: none !important;
+.title{
+  font-family: 'Lobster Two', cursive;
+}
+.card {
+  opacity: 0.9;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.card:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+input {
+  background-color: transparent !important;
 }
