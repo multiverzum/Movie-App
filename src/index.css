@@ -26,6 +26,10 @@ input {
 .poster {
   max-height: 270px;
 }
+.modal-pic{
+  width: 250px;
+  height: 250px;
+}
 
 
 

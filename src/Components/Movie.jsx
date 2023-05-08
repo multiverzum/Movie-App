@@ -14,59 +14,71 @@ function Movie({ movie, getMovieDetails }) {
 
   return (
     <>
-      <div className="container">
-        <div className="row my-2">
-          <div className="card h-100">
-            <div className="card-title d-sm-none d-md-block">
-              <img
-                src={movie.Poster}
-                className="img-fluid card-img-top poster d-xs-none d-sm-block"
-                alt="x"
-              />
-            </div>
+          <div className="card shadow-sm my-2">
+            <img className="bd-placeholder-img card-img-top" width="100%" height="225px" src={movie.Poster}/>
+
             <div className="card-body">
-              <h5>
-                {movie.Title.length > 20
+              <p className="card-text">{movie.Title.length > 20
                   ? movie.Title.substring(0, 20) + "..."
-                  : movie.Title}
-              </h5>
-              <p>{movie.Type === "movie" ? "Movie" : "TV"}</p>
-              <p className="card-text">{movie.Year}</p>
-              <Button
-                variant="dark"
-                className="form-control"
-                onClick={handleShowModal}
-              >
-                Show More
-              </Button>
+                  : movie.Title}</p>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="btn-group">
+                  <button type="button" className="btn btn-sm btn-outline-secondary">{movie.Type === "movie" ? "Movie" : "TV"}</button>
+                  <button type="button" className="btn btn-sm btn-outline-secondary" onClick={handleShowModal}>Show More</button>
+                </div>
+                <small className="text-muted">{movie.Year}</small>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
       {movieDetails && (
-        <Modal
-          show={showModal}
-          onHide={() => setShowModal(false)}    
-        >
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>{movieDetails.Title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img src={movieDetails.Poster} alt={movieDetails.Title} />
-            <p>Year: {movieDetails.Year}</p>
-            <p>Rated: {movieDetails.Rated}</p>
-            <p>Released: {movieDetails.Released}</p>
-            <p>Runtime: {movieDetails.Runtime}</p>
-            <p>Genre: {movieDetails.Genre}</p>
-            <p>Director: {movieDetails.Director}</p>
-            <p>Writer: {movieDetails.Writer}</p>
-            <p>Actors: {movieDetails.Actors}</p>
-            <p>Plot: {movieDetails.Plot}</p>
-            <p>Rating: {movieDetails.imdbRating}</p>
+            <div className="d-flex justify-content-between">
+              <img
+                src={movieDetails.Poster}
+                alt={movieDetails.Title}
+                className="mr-4 modal-pic"
+              />
+              <div className="mx-5 h-100">
+                <p className=" border-bottom border-bottom-md-primary">
+                  Year: {movieDetails.Year}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Rated: {movieDetails.Rated}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Released: {movieDetails.Released}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Runtime: {movieDetails.Runtime}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Genre: {movieDetails.Genre}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Director: {movieDetails.Director}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Writer: {movieDetails.Writer}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Actors: {movieDetails.Actors}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Plot: {movieDetails.Plot}
+                </p>
+                <p className=" border-bottom border-bottom-md-primary">
+                  Rating: {movieDetails.imdbRating}
+                </p>
+              </div>
+            </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
+            <Button variant="dark" onClick={() => setShowModal(false)}>
               Close
             </Button>
           </Modal.Footer>

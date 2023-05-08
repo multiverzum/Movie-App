@@ -4,6 +4,7 @@ import MyNavbar from './Components/MyNavbar';
 import Movie from './Components/Movie';
 import SimilarMovies from './Components/SimilarMovies';
 import './index.css';
+import Footer from './Components/Footer';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,7 @@ function App() {
   };
 
   const getSimilarMovieData = async (movie) => {
-    const url = `http://www.omdbapi.com/?apikey=7e698aea&s=${movie.Title}`;
+    const url = ` http://www.omdbapi.com/?apikey=7e698aea&s=${movie.Title}`;
     const response = await fetch(url);
     const responseJSON = await response.json();
 
@@ -68,15 +69,20 @@ function App() {
       )}
 
         {movies.map((movie) => (
-          <div key={movie.imdbID} className="col-4 container">
+          <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div className="col">
+          <div key={movie.imdbID}>
             <Movie movie={movie} getSimilarMovieData={getSimilarMovieData} getMovieDetails={getMovieDetails} />
           </div>
+          </div>
+          </div>
+          </div>
         ))}
-
       {similarMovies.length > 0 && (
         <SimilarMovies movies={similarMovies} getSimilarMovieData={getSimilarMovieData} getMovieDetails={getMovieDetails} />
         )}
-
+          <Footer/>
     </>
   );
 }
