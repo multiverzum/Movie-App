@@ -66,19 +66,17 @@ function App() {
           </div>
         </div>
       )}
-      <div className="container d-flex flex-wrap">
+
         {movies.map((movie) => (
           <div key={movie.imdbID} className="col-4 container">
             <Movie movie={movie} getSimilarMovieData={getSimilarMovieData} getMovieDetails={getMovieDetails} />
           </div>
         ))}
-      </div>
-      <div className="container">
 
       {similarMovies.length > 0 && (
         <SimilarMovies movies={similarMovies} getSimilarMovieData={getSimilarMovieData} getMovieDetails={getMovieDetails} />
         )}
-        </div>
+
     </>
   );
 }

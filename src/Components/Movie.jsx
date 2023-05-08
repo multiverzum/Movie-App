@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import '../index.css';
+import "../index.css";
 
 function Movie({ movie, getMovieDetails }) {
   const [showModal, setShowModal] = useState(false);
@@ -14,40 +14,31 @@ function Movie({ movie, getMovieDetails }) {
 
   return (
     <>
-      <div className="card mb-5 mt-3 d-flex justify-content-center align-items-center">
-        <div className="row">
-          <div className=" card-title">
-            <img
-              src={movie.Poster}
-              className="py-2 img-fluid card-img-top h-80 w-100"
-              alt='x'
-            />
-          </div>
-          <div className="col-md-8">
+      <div className="container">
+        <div className="row my-2">
+          <div className="card h-100">
+            <div className="card-title d-sm-none d-md-block">
+              <img
+                src={movie.Poster}
+                className="img-fluid card-img-top poster d-xs-none d-sm-block"
+                alt="x"
+              />
+            </div>
             <div className="card-body">
-              <h5 className="card-text">
+              <h5>
                 {movie.Title.length > 20
                   ? movie.Title.substring(0, 20) + "..."
                   : movie.Title}
               </h5>
-
-             <div className="col-12">
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="card-subtitle">
-                  <p>{movie.Type === "movie" ? "Movie" : "TV show"}</p>
-                </div>
-                <div className="col-4 mx-5">
-                  <p className="card-text">{movie.Year}</p>
-                  </div>
-              </div>
+              <p>{movie.Type === "movie" ? "Movie" : "TV"}</p>
+              <p className="card-text">{movie.Year}</p>
               <Button
                 variant="dark"
                 className="form-control"
                 onClick={handleShowModal}
-                >
+              >
                 Show More
               </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -56,8 +47,7 @@ function Movie({ movie, getMovieDetails }) {
       {movieDetails && (
         <Modal
           show={showModal}
-          onHide={() => setShowModal(false)}
-          className="w-100"
+          onHide={() => setShowModal(false)}    
         >
           <Modal.Header closeButton>
             <Modal.Title>{movieDetails.Title}</Modal.Title>

@@ -23,3 +23,10 @@ body {
 input {
   background-color: transparent !important;
 }
+.poster {
+  max-height: 270px;
+}
+
+
+
+
