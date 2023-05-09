@@ -14,11 +14,11 @@ function Movie({ movie, getMovieDetails }) {
 
   return (
     <>
-          <div className="card shadow-sm my-2">
+          <div className="card shadow-sm my-2 bg-transparent">
             <img className="bd-placeholder-img card-img-top" width="100%" height="225px" src={movie.Poster}/>
 
-            <div className="card-body">
-              <p className="card-text">{movie.Title.length > 20
+            <div className="card-body bg-transparent">
+              <p className="card-text text-white">{movie.Title.length > 20
                   ? movie.Title.substring(0, 20) + "..."
                   : movie.Title}</p>
               <div className="d-flex justify-content-between align-items-center">
@@ -26,7 +26,7 @@ function Movie({ movie, getMovieDetails }) {
                   <button type="button" className="btn btn-sm btn-outline-secondary">{movie.Type === "movie" ? "Movie" : "TV"}</button>
                   <button type="button" className="btn btn-sm btn-outline-secondary" onClick={handleShowModal}>Show More</button>
                 </div>
-                <small className="text-muted">{movie.Year}</small>
+                <small className="text-muted text-white">{movie.Year}</small>
               </div>
             </div>
           </div>

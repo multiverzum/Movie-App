@@ -1,8 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+
+:root {
+  --color-primary: #db0549;
+  --color-primary-darker: #82042c;
+  --color-dark: #011627;
+  --color-light-gray: #f8f8f8;
+  --body-background: #F6F7F8;
+  --color-gray: #f1f1f1
+}
+
+
+*{
+  font-size: 12pt;
+  font-weight: 400;
+}
+
 body {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: #333;
+  font-weight: 400;
 
   
 }
@@ -14,6 +32,14 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+
+.pointer{
+  cursor: pointer;
+}
+
+.card-img-top{
+  object-fit: cover;
+}
 
 .card:hover {
   opacity: 1;
@@ -31,6 +57,29 @@ input {
   height: 250px;
 }
 
+#search-input-form{
+  max-width: 750px;
+  width: 100%;
+}
+
+.bg-custom-dark{
+  background-color: var(--color-dark) !important;
+}
+
+.bold{
+  font-weight: 600 !important;
+}
+
+.rounded-lg{
+  border-radius: 2rem !important;
+}
 
 
+.color-primary{
+  color: var(--color-primary) !important;
+}
 
+.btn-primary{
+  background-color: var(--color-primary) !important;
+  border: none !important;
+}
